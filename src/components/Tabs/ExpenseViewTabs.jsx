@@ -45,7 +45,7 @@ const ExpenseViewTabs = ({data, onAddExpense}) => {
   const e = data;
   const [value, setValue] = React.useState(0);
   const [isAddModalOpen, setIsAddModelOpen] = React.useState(false);
-  const [expenseData, setExpenseData] = React.useState({ ...data });
+  const [expenseData, setExpenseData] = React.useState({});
   const [expenses, setExpenses] = React.useState(e);
 
   // React.useEffect(() => {
