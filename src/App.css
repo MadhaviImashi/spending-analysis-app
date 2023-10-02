@@ -36,3 +36,29 @@
     transform: rotate(360deg);
   }
 }
+
+/* custom styles */
+
+.flexRow {
+  display: flex;
+  flex-direction: row;
+}
+
+@media (min-width: 1200px){
+  .css-1oqqzyl-MuiContainer-root {
+      max-width: 1250px !important; /* to reduce the default horizontal margin of container */
+  }
+}
+
+.css-19kzrtu {
+  padding: 20px 10px 15px 10px !important; /* customize padding of Tab views */ 
+}
+
+/* customize the paper cards */
+.css-qy7ta1-MuiPaper-root { 
+  padding: 12px !important;
+}
+
+.css-5zhz7n-MuiPaper-root { 
+  padding: 12px !important;
+}

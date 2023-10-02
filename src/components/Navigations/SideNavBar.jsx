@@ -21,7 +21,8 @@ import Transactions from '@mui/icons-material/ReceiptLong'
 import Budget from '@mui/icons-material/AttachMoney'
 import { Avatar, Container, Tooltip } from '@mui/material';
 // import { makeStyles } from '@mui/'
-import './sideNavBar.css';
+import '../../App.css';
+import AllTransactions from '../../views/AllTransactions';
 
 const drawerWidth = 230;
 
@@ -90,22 +91,10 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-// const useStyles = makeStyles({
-//   appName: {
-//     marginRight: 2,
-//     fontFamily: 'monospace',
-//     fontWeight: 700,
-//     // letterSpacing: .3rem,
-//     color: '#33FFF2',
-//     textDecoration: 'none',
-//   }
-// });
-
 export default function MiniDrawer() {
   const theme = useTheme();
-  // const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-const [selectedNavItem, setSelectedNavItem] = React.useState('text'); // Initial selected item
+  const [selectedNavItem, setSelectedNavItem] = React.useState('text'); // Initial selected item
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -120,20 +109,20 @@ const [selectedNavItem, setSelectedNavItem] = React.useState('text'); // Initial
   };
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box className={'flexRow'}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
-        <Toolbar className='flexRow' style={{backgroundColor:"gray", justifyContent: 'space-between'}}>
+        <Toolbar className='flexRow' sx={{backgroundColor:"secondary", justifyContent: 'space-between'}}>
             {/* menu icon */}
-            <stack>
+            <Box>
               <IconButton
-                color="inherit"
                 aria-label="open drawer"
                 onClick={handleDrawerOpen}
                 edge="start"
                 sx={{
                   marginRight: 5,
                   ...(open && { display: 'none' }),
+                  color: 'other.white',
                 }}
               >
                 <MenuIcon />
@@ -142,22 +131,15 @@ const [selectedNavItem, setSelectedNavItem] = React.useState('text'); // Initial
                     variant="h6"
                     noWrap
                     component="a"
-                    className="appName"
-                    // className={classes.appName}
-                    // sx={{
-                    //   marginRight: 2,
-                    //   fontFamily: 'monospace',
-                    //   fontWeight: 700,
-                    //   // letterSpacing: .3rem,
-                    //   color: '#33FFF2',
-                    //   textDecoration: 'none',
-                    // }}
+                    color="other.white"
+                    fontWeight='900'
+                    fontSize='1.45rem'
                     >
                     Spendee
                   </Typography>
-            </stack>
+            </Box>
             <Tooltip title="Open settings">
-                <IconButton onClick={console.log('profile icon clicked')} sx={{ p: 0 }}>
+            <IconButton onClick={() => { console.log('profile icon clicked') }} sx={{ p: 0 }}>
                     <Avatar alt="profile name" src="/static/images/profile-pic.jpg" />
                 </IconButton>
             </Tooltip>
@@ -241,17 +223,17 @@ const [selectedNavItem, setSelectedNavItem] = React.useState('text'); // Initial
         <DrawerHeader />
         {/* Render dynamic content based on the selected navigation item */}
         {selectedNavItem === 'budget' && (
-          <Container sx={{ backgroundColor: 'yellow'}}>
-            <Typography>dkdkd dkdk</Typography>
-          </Container>
-        )}
-        {selectedNavItem === 'transactions' && (
           <Typography paragraph>
-            Content for text2...
+            Content for budget...
           </Typography>
         )}
+        {selectedNavItem === 'transactions' && (
+          <Container>
+            <AllTransactions/>
+          </Container>
+        )}
         {selectedNavItem === 'report' && (
-          <Typography>kkk</Typography>
+          <Typography>monthly overview</Typography>
         )}
       </Box>
     </Box>
