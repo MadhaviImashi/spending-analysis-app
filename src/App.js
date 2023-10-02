@@ -1,6 +1,5 @@
 import logo from './logo.svg';
 import './App.css';
-import TopBar from './components/Navigations/TopNavBar';
 import MiniDrawer from './components/Navigations/SideNavBar';
 
 function App() {
