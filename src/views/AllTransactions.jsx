@@ -24,12 +24,6 @@ const AllTransactions = () => {
 
   const [expenses, setExpenses] = React.useState(data);
 
-
-  // // runs in every render
-  // React.useEffect(() => {
-  //   setExpenses(storedExpenses);
-  // })
-
   // runs only in first render
   React.useEffect(() => {
     // Load expenses from local storage when the component renders
@@ -41,23 +35,14 @@ const AllTransactions = () => {
 
   const onAddExpense = (newExpense) => {
     newExpense.id = uuidv4();
+    console.log('new exp', newExpense)
     arr = expenses
     arr.unshift(newExpense);
     setExpenses(arr)
-    console.log('newly added ex', newExpense, expenses, 'arrhhhhhhhhhhhhh', arr[0]);
-    localStorage.setItem('expenses', JSON.stringify(arr))
+    console.log('newly added ex', newExpense, expenses, 'arrr', arr);
+    localStorage.setItem('expenses', JSON.stringify([arr, ...expenses]))
   }
-  // const onAddExpense = (newExpense) => {
-  //   // Generate a unique ID for the new expense
-  //   const newExpenseWithId = { ...newExpense, id: uuidv4() };
-  
-  //   // Update the state with the new expense
-  //   setExpenses((prevExpenses) => [newExpenseWithId, ...prevExpenses]);
-  
-  //   // Update local storage
-  //   localStorage.setItem('expenses', JSON.stringify([newExpenseWithId, ...expenses]));
-  // };
-  
+
 
   return (
     <Box sx={{ flexGrow: 1, paddingTop: '15px' }}>
