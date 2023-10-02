@@ -48,12 +48,7 @@ const ExpenseViewTabs = ({data, onAddExpense}) => {
   const [expenseData, setExpenseData] = React.useState({});
   const [expenses, setExpenses] = React.useState(e);
 
-  // React.useEffect(() => {
-  //   setExpenses(data)
-  //   console.log('inside view tabs', data, expenses)
-  // },[])
-
-    const handleAddExpense = () => {
+  const handleAddExpense = () => {
       console.log('expense added')
     setIsAddModelOpen(true);
   };

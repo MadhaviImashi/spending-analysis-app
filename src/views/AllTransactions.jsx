@@ -28,7 +28,7 @@ const AllTransactions = () => {
   React.useEffect(() => {
     // Load expenses from local storage when the component renders
     const storedExpenses = JSON.parse(localStorage.getItem('expenses')) || data;
-    console.log('from local st: ', storedExpenses, 'kk', expenses)
+    console.log('from local st: ', storedExpenses)
     setExpenses(storedExpenses);
   },[]);
 
@@ -59,7 +59,7 @@ const AllTransactions = () => {
             <Stack>
               <Typography variant='h6' color='other.textP' textAlign='left' mb={1}>Expenses</Typography>
                 <ListContainer sx={{backgroundColor: 'secondary.light'}}>
-              <ExpenseViewTabs data={expenses} onAddExpense={onAddExpense} />
+                  <ExpenseViewTabs data={expenses} onAddExpense={onAddExpense} />
                 </ListContainer>
             </Stack>
           </Grid>

@@ -20,7 +20,6 @@ import Statistics from '@mui/icons-material/ShowChart';
 import Transactions from '@mui/icons-material/ReceiptLong'
 import Budget from '@mui/icons-material/AttachMoney'
 import { Avatar, Container, Tooltip } from '@mui/material';
-// import { makeStyles } from '@mui/'
 import '../../App.css';
 import AllTransactions from '../../views/AllTransactions';
 
@@ -52,7 +51,6 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'flex-end',
   padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
   ...theme.mixins.toolbar,
 }));
 
